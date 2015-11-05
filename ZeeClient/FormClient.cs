@@ -91,8 +91,7 @@ namespace ZeeClient
         {
             if (e.ZeemoteKeyCode == ZeemoteKeys.KeyCodeA)
             {
-                mouseInput.SimulateMouseScroll(false);
-                //HotKeyDown(hkA);
+                HotKeyDown(hkA);
             }
             else if (e.ZeemoteKeyCode == ZeemoteKeys.KeyCodeB)
             {
@@ -184,7 +183,7 @@ namespace ZeeClient
                 }
                 else
                 {
-                    //InputSimulator.SimulateKeyUp((VirtualKeyCode)hotKey[i]);
+                    InputSimulator.SimulateKeyDown((VirtualKeyCode)hotKey[i]);
                 }
                 textBoxRawData.AppendText(((VirtualKeyCode)hotKey[i]).ToString() + " Pressed" + Environment.NewLine);
             }
@@ -209,7 +208,7 @@ namespace ZeeClient
                 }
                 else
                 {
-                    //InputSimulator.SimulateKeyUp((VirtualKeyCode)hotKey[i]);
+                    InputSimulator.SimulateKeyUp((VirtualKeyCode)hotKey[i]);
                 }
 
                 textBoxRawData.AppendText(((VirtualKeyCode)hotKey[i]).ToString() + " Up" + Environment.NewLine);
@@ -360,6 +359,14 @@ namespace ZeeClient
             }
 
             return hotKeys;
+        }
+
+        private void FormClient_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.Hide();
+            }
         }
     }
 }

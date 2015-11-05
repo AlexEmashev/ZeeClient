@@ -40,7 +40,7 @@
             this.comboBoxKey.FormattingEnabled = true;
             this.comboBoxKey.Location = new System.Drawing.Point(169, 12);
             this.comboBoxKey.Name = "comboBoxKey";
-            this.comboBoxKey.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxKey.Size = new System.Drawing.Size(154, 21);
             this.comboBoxKey.TabIndex = 7;
             // 
             // cbAlt
@@ -77,13 +77,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(302, 45);
+            this.ClientSize = new System.Drawing.Size(335, 45);
             this.Controls.Add(this.comboBoxKey);
             this.Controls.Add(this.cbAlt);
             this.Controls.Add(this.cbShift);
             this.Controls.Add(this.cbCtrl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormKeySetup";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "FormKeySetup";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormKeySetup_FormClosing);
             this.ResumeLayout(false);

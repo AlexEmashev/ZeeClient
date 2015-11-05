@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
@@ -39,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxRawData = new System.Windows.Forms.TextBox();
             this.bgWorkerProcessData = new System.ComponentModel.BackgroundWorker();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
             // 
             // buttonRight
@@ -149,6 +151,11 @@
             this.bgWorkerProcessData.WorkerReportsProgress = true;
             this.bgWorkerProcessData.WorkerSupportsCancellation = true;
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Text = "ZeeClient";
+            this.notifyIcon.Visible = true;
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -165,8 +172,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxRawData);
             this.Name = "FormClient";
-            this.Text = "Zee Client";
+            this.Text = "ZeeClient";
             this.Load += new System.EventHandler(this.FormClient_Load);
+            this.Resize += new System.EventHandler(this.FormClient_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,6 +193,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxRawData;
         private System.ComponentModel.BackgroundWorker bgWorkerProcessData;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
     }
 }
 
