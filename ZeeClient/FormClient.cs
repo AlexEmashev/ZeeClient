@@ -361,12 +361,50 @@ namespace ZeeClient
             return hotKeys;
         }
 
+        /// <summary>
+        /// Minimize window to tray.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FormClient_Resize(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Minimized)
             {
                 this.Hide();
             }
+        }
+
+        /// <summary>
+        /// Handler for window messages.
+        /// <remarks>Use to restore window in single instance scenario.</remarks>
+        /// </summary>
+        /// <param name="m"></param>
+        protected override void WndProc(ref Message m)
+        {
+            if(m.Msg == SingleInstance.WM_SHOW_MAIN_WND)
+            {
+                ShowWindow();
+            }
+            base.WndProc(ref m);
+        }
+
+        /// <summary>
+        /// Shows window after it was hidden.
+        /// Use to restore window from tray or on event from another instance of app.
+        /// </summary>
+        private void ShowWindow()
+        {
+            if(WindowState == FormWindowState.Minimized)
+            {
+                this.Show();
+                this.WindowState = FormWindowState.Normal;
+            }
+
+            // Save current TopMost property for featurure
+            bool topMost = this.TopMost;
+            // Bring window up front
+            this.TopMost = true;
+            this.TopMost = topMost;
         }
     }
 }
