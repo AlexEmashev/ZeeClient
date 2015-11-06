@@ -22,7 +22,7 @@ It allows to map Zeemote buttons to perform various shortcuts.
 - Mouse wheel support
 - Detect key down and key up events
 
-![Screenshot](ZeeClient/Images/Screenshot.png)
+![Screenshot](ZeeClient/Images/Screenshot.PNG)
 
 ##Requirements
 
