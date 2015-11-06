@@ -39,12 +39,15 @@
             this.buttonB = new System.Windows.Forms.Button();
             this.buttonA = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBoxRawData = new System.Windows.Forms.TextBox();
             this.bgWorkerProcessData = new System.ComponentModel.BackgroundWorker();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemClose = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxStatus = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,7 +58,7 @@
             this.buttonRight.Location = new System.Drawing.Point(118, 53);
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(29, 23);
-            this.buttonRight.TabIndex = 19;
+            this.buttonRight.TabIndex = 2;
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.hotKeySetup_Click);
             // 
@@ -63,10 +66,10 @@
             // 
             this.buttonDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDown.Image = global::ZeeClient.Properties.Resources.ArrowDown;
-            this.buttonDown.Location = new System.Drawing.Point(74, 88);
+            this.buttonDown.Location = new System.Drawing.Point(75, 88);
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(29, 23);
-            this.buttonDown.TabIndex = 18;
+            this.buttonDown.TabIndex = 3;
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.hotKeySetup_Click);
             // 
@@ -74,10 +77,10 @@
             // 
             this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUp.Image = ((System.Drawing.Image)(resources.GetObject("buttonUp.Image")));
-            this.buttonUp.Location = new System.Drawing.Point(71, 17);
+            this.buttonUp.Location = new System.Drawing.Point(72, 17);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(31, 23);
-            this.buttonUp.TabIndex = 17;
+            this.buttonUp.TabIndex = 0;
             this.buttonUp.UseVisualStyleBackColor = true;
             this.buttonUp.Click += new System.EventHandler(this.hotKeySetup_Click);
             // 
@@ -88,7 +91,7 @@
             this.buttonLeft.Location = new System.Drawing.Point(34, 53);
             this.buttonLeft.Name = "buttonLeft";
             this.buttonLeft.Size = new System.Drawing.Size(29, 23);
-            this.buttonLeft.TabIndex = 16;
+            this.buttonLeft.TabIndex = 1;
             this.buttonLeft.UseVisualStyleBackColor = true;
             this.buttonLeft.Click += new System.EventHandler(this.hotKeySetup_Click);
             // 
@@ -98,7 +101,7 @@
             this.buttonD.Location = new System.Drawing.Point(49, 142);
             this.buttonD.Name = "buttonD";
             this.buttonD.Size = new System.Drawing.Size(73, 23);
-            this.buttonD.TabIndex = 15;
+            this.buttonD.TabIndex = 7;
             this.buttonD.Text = "D";
             this.buttonD.UseVisualStyleBackColor = true;
             this.buttonD.Click += new System.EventHandler(this.hotKeySetup_Click);
@@ -109,7 +112,7 @@
             this.buttonC.Location = new System.Drawing.Point(382, 171);
             this.buttonC.Name = "buttonC";
             this.buttonC.Size = new System.Drawing.Size(73, 23);
-            this.buttonC.TabIndex = 14;
+            this.buttonC.TabIndex = 6;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = true;
             this.buttonC.Click += new System.EventHandler(this.hotKeySetup_Click);
@@ -120,7 +123,7 @@
             this.buttonB.Location = new System.Drawing.Point(382, 79);
             this.buttonB.Name = "buttonB";
             this.buttonB.Size = new System.Drawing.Size(73, 23);
-            this.buttonB.TabIndex = 13;
+            this.buttonB.TabIndex = 5;
             this.buttonB.Text = "B";
             this.buttonB.UseVisualStyleBackColor = true;
             this.buttonB.Click += new System.EventHandler(this.hotKeySetup_Click);
@@ -131,7 +134,7 @@
             this.buttonA.Location = new System.Drawing.Point(382, 33);
             this.buttonA.Name = "buttonA";
             this.buttonA.Size = new System.Drawing.Size(73, 23);
-            this.buttonA.TabIndex = 12;
+            this.buttonA.TabIndex = 4;
             this.buttonA.Text = "A";
             this.buttonA.UseVisualStyleBackColor = true;
             this.buttonA.Click += new System.EventHandler(this.hotKeySetup_Click);
@@ -139,25 +142,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 290);
+            this.label1.Location = new System.Drawing.Point(12, 298);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Status:";
-            // 
-            // textBoxRawData
-            // 
-            this.textBoxRawData.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxRawData.BackColor = System.Drawing.Color.Black;
-            this.textBoxRawData.ForeColor = System.Drawing.Color.Lime;
-            this.textBoxRawData.Location = new System.Drawing.Point(58, 200);
-            this.textBoxRawData.Multiline = true;
-            this.textBoxRawData.Name = "textBoxRawData";
-            this.textBoxRawData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRawData.Size = new System.Drawing.Size(430, 72);
-            this.textBoxRawData.TabIndex = 10;
             // 
             // bgWorkerProcessData
             // 
@@ -166,9 +155,33 @@
             // 
             // notifyIcon
             // 
+            this.notifyIcon.ContextMenuStrip = this.contextMenuStrip;
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "ZeeClient";
             this.notifyIcon.Visible = true;
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAbout,
+            this.toolStripMenuItemClose});
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.ShowImageMargin = false;
+            this.contextMenuStrip.Size = new System.Drawing.Size(83, 48);
+            // 
+            // toolStripMenuItemAbout
+            // 
+            this.toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
+            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(82, 22);
+            this.toolStripMenuItemAbout.Text = "About";
+            this.toolStripMenuItemAbout.Click += new System.EventHandler(this.toolStripMenuItemAbout_Click);
+            // 
+            // toolStripMenuItemClose
+            // 
+            this.toolStripMenuItemClose.Name = "toolStripMenuItemClose";
+            this.toolStripMenuItemClose.Size = new System.Drawing.Size(82, 22);
+            this.toolStripMenuItemClose.Text = "Close";
+            this.toolStripMenuItemClose.Click += new System.EventHandler(this.toolStripMenuItemClose_Click);
             // 
             // pictureBox1
             // 
@@ -183,7 +196,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Gray;
-            this.label2.Location = new System.Drawing.Point(70, 58);
+            this.label2.Location = new System.Drawing.Point(70, 57);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 21;
@@ -192,7 +205,7 @@
             // textBoxStatus
             // 
             this.textBoxStatus.Enabled = false;
-            this.textBoxStatus.Location = new System.Drawing.Point(58, 287);
+            this.textBoxStatus.Location = new System.Drawing.Point(58, 295);
             this.textBoxStatus.Name = "textBoxStatus";
             this.textBoxStatus.ReadOnly = true;
             this.textBoxStatus.Size = new System.Drawing.Size(428, 20);
@@ -215,15 +228,16 @@
             this.Controls.Add(this.buttonB);
             this.Controls.Add(this.buttonA);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxRawData);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormClient";
             this.Text = "ZeeClient";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormClient_FormClosing);
             this.Load += new System.EventHandler(this.FormClient_Load);
             this.Resize += new System.EventHandler(this.FormClient_Resize);
+            this.contextMenuStrip.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -241,12 +255,14 @@
         private System.Windows.Forms.Button buttonB;
         private System.Windows.Forms.Button buttonA;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxRawData;
         private System.ComponentModel.BackgroundWorker bgWorkerProcessData;
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBoxStatus;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemClose;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbout;
     }
 }
 

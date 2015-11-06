@@ -290,6 +290,14 @@ namespace ZeeClient
         /// </summary>
         public string Message { get; set; }
         /// <summary>
+        /// True if device just connected
+        /// </summary>
+        public bool ConnectionEstablished { get; set; }
+        /// <summary>
+        /// Device disconnected
+        /// </summary>
+        public bool DisconnectOccured { get; set; }
+        /// <summary>
         /// Keys message from controller
         /// </summary>
         public ZeemoteMessage ZeemoteMessage { get; set; }

@@ -229,6 +229,11 @@ namespace ZeeClient
             {
                 // Report message
                 textBoxStatus.Text = e.Message;
+
+                if(e.Message == "Connected")
+                {
+                    notifyIcon.ShowBalloonTip(3000, "ZeeClient", "Connected", ToolTipIcon.Info);
+                }
             }
         }
 
@@ -396,6 +401,21 @@ namespace ZeeClient
             // Bring window up front
             this.TopMost = true;
             this.TopMost = topMost;
+        }
+
+        private void toolStripMenuItemClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void FormClient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Form closing");
+        }
+
+        private void toolStripMenuItemAbout_Click(object sender, EventArgs e)
+        {
+            new AboutBox().ShowDialog();
         }
     }
 }
