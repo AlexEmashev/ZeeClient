@@ -29,9 +29,22 @@ namespace ZeeClient
         public event ZeemoteKeyUpHandler KeyUp;
 
         /// <summary>
-        /// Joystick can be buggy, and has dead zone. Here small fix for it.
+        /// Joystick might be buggy, and has default coordinates other then (0, 0). Here small fix for it.
+        /// <remarks>Also, user can set this setting, in order to use Joystick as a buttons 
+        /// and lower it's accuracy to exclude incorrect side moves.</remarks>
         /// </summary>
-        private int JoystickDeadZone = 15;
+        private int JoystickDeadZone {
+            get
+            {
+                return Properties.Settings.Default.DeadZone;
+            }
+            set 
+            { 
+                Properties.Settings.Default.DeadZone = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
         /// <summary>
         /// Current Zeemote keys status
         /// </summary>

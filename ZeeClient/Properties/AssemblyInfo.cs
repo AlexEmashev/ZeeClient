@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ZeeClient")]
-[assembly: AssemblyDescription("Unofficial Zeemote client for Windows")]
+[assembly: AssemblyDescription("Unofficial Zeemote client for Windows. More info: https://github.com/AlexEmashev/ZeeClient")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("https://github.com/AlexEmashev/ZeeClient")]
 [assembly: AssemblyProduct("ZeeClient")]
 [assembly: AssemblyCopyright("Copyright Alexander Emashev ©  2015")]
 [assembly: AssemblyTrademark("")]
