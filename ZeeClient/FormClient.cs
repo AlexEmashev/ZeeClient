@@ -185,7 +185,6 @@ namespace ZeeClient
                 {
                     InputSimulator.SimulateKeyDown((VirtualKeyCode)hotKey[i]);
                 }
-                textBoxRawData.AppendText(((VirtualKeyCode)hotKey[i]).ToString() + " Pressed" + Environment.NewLine);
             }
         }
 
@@ -211,7 +210,6 @@ namespace ZeeClient
                     InputSimulator.SimulateKeyUp((VirtualKeyCode)hotKey[i]);
                 }
 
-                textBoxRawData.AppendText(((VirtualKeyCode)hotKey[i]).ToString() + " Up" + Environment.NewLine);
             }
         }
 
@@ -229,18 +227,19 @@ namespace ZeeClient
             }
             else
             {
-                textBoxRawData.AppendText(e.Message + Environment.NewLine);
+                // Report message
+                textBoxStatus.Text = e.Message;
             }
         }
 
         void zeemoteListener_ErrorOccured(object sender, ErrorEventArgs e)
         {
-            textBoxRawData.AppendText(e.ErrorType + Environment.NewLine);
+            textBoxStatus.Text = e.ErrorType;
         }
 
         void hotKeys_NewMessage(object sender, MessageEventArgs e)
         {
-            textBoxRawData.AppendText(e.Message + Environment.NewLine);
+            textBoxStatus.Text = e.Message;
         }
 
         /// <summary>
@@ -257,56 +256,48 @@ namespace ZeeClient
                 keySetup = new FormKeySetup(Properties.Settings.Default.ButtonA);
                 keySetup.ShowDialog();
                 Properties.Settings.Default.ButtonA = keySetup.HotKeys;
-                textBoxRawData.AppendText(Properties.Settings.Default.ButtonA + Environment.NewLine);
             }
             else if (sender.Equals(buttonB))
             {
                 keySetup = new FormKeySetup(Properties.Settings.Default.ButtonB);
                 keySetup.ShowDialog();
                 Properties.Settings.Default.ButtonB = keySetup.HotKeys;
-                textBoxRawData.AppendText(Properties.Settings.Default.ButtonB + Environment.NewLine);
             }
             else if (sender.Equals(buttonC))
             {
                 keySetup = new FormKeySetup(Properties.Settings.Default.ButtonC);
                 keySetup.ShowDialog();
                 Properties.Settings.Default.ButtonC = keySetup.HotKeys;
-                textBoxRawData.AppendText(Properties.Settings.Default.ButtonC + Environment.NewLine);
             }
             else if (sender.Equals(buttonD))
             {
                 keySetup = new FormKeySetup(Properties.Settings.Default.ButtonD);
                 keySetup.ShowDialog();
                 Properties.Settings.Default.ButtonD = keySetup.HotKeys;
-                textBoxRawData.AppendText(Properties.Settings.Default.ButtonD + Environment.NewLine);
             }
             else if (sender.Equals(buttonLeft))
             {
                 keySetup = new FormKeySetup(Properties.Settings.Default.JoyLeft);
                 keySetup.ShowDialog();
                 Properties.Settings.Default.JoyLeft = keySetup.HotKeys;
-                textBoxRawData.AppendText(Properties.Settings.Default.JoyLeft + Environment.NewLine);
             }
             else if (sender.Equals(buttonRight))
             {
                 keySetup = new FormKeySetup(Properties.Settings.Default.JoyRight);
                 keySetup.ShowDialog();
                 Properties.Settings.Default.JoyRight = keySetup.HotKeys;
-                textBoxRawData.AppendText(Properties.Settings.Default.JoyRight + Environment.NewLine);
             }
             else if (sender.Equals(buttonUp))
             {
                 keySetup = new FormKeySetup(Properties.Settings.Default.JoyUp);
                 keySetup.ShowDialog();
                 Properties.Settings.Default.JoyUp = keySetup.HotKeys;
-                textBoxRawData.AppendText(Properties.Settings.Default.JoyUp + Environment.NewLine);
             }
             else if (sender.Equals(buttonDown))
             {
                 keySetup = new FormKeySetup(Properties.Settings.Default.JoyDown);
                 keySetup.ShowDialog();
                 Properties.Settings.Default.JoyDown = keySetup.HotKeys;
-                textBoxRawData.AppendText(Properties.Settings.Default.JoyDown + Environment.NewLine);
             }
             Properties.Settings.Default.Save();
             LoadButtonsSettings();

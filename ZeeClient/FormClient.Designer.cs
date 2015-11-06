@@ -44,6 +44,7 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.textBoxStatus = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,11 +152,11 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxRawData.BackColor = System.Drawing.Color.Black;
             this.textBoxRawData.ForeColor = System.Drawing.Color.Lime;
-            this.textBoxRawData.Location = new System.Drawing.Point(58, 287);
+            this.textBoxRawData.Location = new System.Drawing.Point(58, 200);
             this.textBoxRawData.Multiline = true;
             this.textBoxRawData.Name = "textBoxRawData";
             this.textBoxRawData.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxRawData.Size = new System.Drawing.Size(430, 23);
+            this.textBoxRawData.Size = new System.Drawing.Size(430, 72);
             this.textBoxRawData.TabIndex = 10;
             // 
             // bgWorkerProcessData
@@ -188,12 +189,22 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "Joystick";
             // 
+            // textBoxStatus
+            // 
+            this.textBoxStatus.Enabled = false;
+            this.textBoxStatus.Location = new System.Drawing.Point(58, 287);
+            this.textBoxStatus.Name = "textBoxStatus";
+            this.textBoxStatus.ReadOnly = true;
+            this.textBoxStatus.Size = new System.Drawing.Size(428, 20);
+            this.textBoxStatus.TabIndex = 22;
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(500, 322);
+            this.Controls.Add(this.textBoxStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonDown);
@@ -235,6 +246,7 @@
         private System.Windows.Forms.NotifyIcon notifyIcon;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxStatus;
     }
 }
 

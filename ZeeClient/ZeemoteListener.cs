@@ -21,15 +21,20 @@ namespace ZeeClient
         BackgroundWorker bgWorkerProcessData;
 
         /// <summary>
-        /// Zeemote name
+        /// Device name.
+        /// <remarks>Use it in search metohd.</remarks>
         /// </summary>
         private string deviceName = "Zeemote JS1";
         BluetoothAddress deviceAddress;
-        // Zeemote GUID
+        // Zeemote service GUID
         Guid serviceClass = new Guid("8E1F0CF7-508F-4875-B62C-FBB67FD34812");
+        /// <summary>
+        /// Flag for cancelling an operation.
+        /// </summary>
         bool Cancel = false;
         public event MessageEventHandler NewMessage;
         public delegate void MessageEventHandler(object sender, MessageEventArgs e);
+        // Currently not using
         //public event ErrorOccuredEventHandler ErrorOccured;
         //public delegate void ErrorOccuredEventHandler(object sender, ErrorEventArgs e);
 
@@ -61,7 +66,6 @@ namespace ZeeClient
         /// <param name="e"></param>
         void bgWorkerProcessData_DoWork(object sender, DoWorkEventArgs e)
         {
-            // if (peerStream == null) // Assure that connect method bieng run only once.
             EstablishConnection();
         }
 
@@ -91,18 +95,18 @@ namespace ZeeClient
         private bool ScanForDevice()
         {
             // ToDo: move btClient to the class level
-            bgWorkerProcessData.ReportProgress(0, "Searching for the device");
+            bgWorkerProcessData.ReportProgress(0, "Searching for the device...");
             BluetoothClient btClient = new BluetoothClient();
             BluetoothDeviceInfo[] devices = btClient.DiscoverDevicesInRange();
-            bgWorkerProcessData.ReportProgress(0, "Search complete");
-            bgWorkerProcessData.ReportProgress(0, "Devices discovered:");
+            //bgWorkerProcessData.ReportProgress(0, "Search complete");
+            //bgWorkerProcessData.ReportProgress(0, "Devices discovered:");
 
             foreach (BluetoothDeviceInfo device in devices)
             {
                 if (device.DeviceName == deviceName)
                 {
                     deviceAddress = device.DeviceAddress;
-                    bgWorkerProcessData.ReportProgress(0, deviceName + " found on address " + deviceAddress.ToString());
+                    bgWorkerProcessData.ReportProgress(0, deviceName + " found");
                     return true;
                 }
             }
@@ -130,10 +134,11 @@ namespace ZeeClient
             }
             catch (Exception ex)
             {
-                bgWorkerProcessData.ReportProgress(0, ex.Message + " Second chance");
+                bgWorkerProcessData.ReportProgress(0, ex.Message + " Reconnecting...");
             }
             finally
             {
+                // Can't remember wat was it for
                 bgWorkerProcessData.ReportProgress(100, "This should be the end");
             }
         }
@@ -145,18 +150,18 @@ namespace ZeeClient
         {
             try
             {
-                bgWorkerProcessData.ReportProgress(0, "Creating endboint");
+                // bgWorkerProcessData.ReportProgress(0, "Creating endboint");
                 BluetoothEndPoint endPoint = new BluetoothEndPoint(deviceAddress, serviceClass);
-                bgWorkerProcessData.ReportProgress(0, "Creating bt client");
+                // bgWorkerProcessData.ReportProgress(0, "Creating bt client");
                 using (BluetoothClient btClient = new BluetoothClient())
                 {
-                    bgWorkerProcessData.ReportProgress(0, "Connecting to endpoint");
+                    bgWorkerProcessData.ReportProgress(0, "Connecting...");
                     btClient.Connect(endPoint);
-                    bgWorkerProcessData.ReportProgress(0, "Connected to endpoint");
+                    bgWorkerProcessData.ReportProgress(0, "Connected");
                     // If connected
                     using (Stream peerStream = btClient.GetStream())
                     {
-                        // Now read and parse data from device.
+                        // Read and parse data from device.
                         ReadData(peerStream);
                     }
                 }
@@ -169,6 +174,10 @@ namespace ZeeClient
             }
         }
 
+        /// <summary>
+        /// Reads data from deivice's stream
+        /// </summary>
+        /// <param name="peerStream">Stream with data to read.</param>
         private void ReadData(Stream peerStream)
         {
             byte[] buf = new byte[1024]; ;
@@ -184,8 +193,8 @@ namespace ZeeClient
                         EstablishConnection();
                         continue;
                     }
-                    string message = DispatchBluetoothMessage(buf, numberOfBytesRead);
-                    //bgWorkerProcessData.ReportProgress(0, message);
+
+                    DispatchBluetoothMessage(buf, numberOfBytesRead);
                 } while (peerStream.CanRead);
             }
             catch (Exception ex)
@@ -195,49 +204,40 @@ namespace ZeeClient
             }
         }
 
-        // Dispatch message to structure
-        public string DispatchBluetoothMessage(byte[] message, int numberOfBytes)
+        /// <summary>
+        /// Dispatch zeemote message
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="numberOfBytes"></param>
+        public void DispatchBluetoothMessage(byte[] message, int numberOfBytes)
         {
-            // Dispatch Button
-            string btnA = "A";
-            string btnB = "B";
-            string btnC = "C";
-            string btnD = "D";
-            string button = "Button";
-            string battery = "Battery";
-            string joystick = "Joystick";
-            string despatchedMsg = "";
-            string connected = "Connected";
             ZeemoteMessage msg = new ZeemoteMessage();
 
             if ((numberOfBytes == 8) &&
                 (message[0] == 7 && message[1] == 161 && message[2] == 5 && message[3] == 255))
-                despatchedMsg += connected;
+            {
+                // Device is connected.
+            }
             // Check if message about button
             else if ((numberOfBytes == 9) &&
                 (message[0] == 8 && message[1] == 161 && message[2] == 7))
             {
-                despatchedMsg += button;
                 for (int i = 3; i <= 6; i++)
                 {
                     if (message[i] == 0)
                     {
-                        despatchedMsg += " " + btnA;
                         msg.ButtonA = true;
                     }
                     else if (message[i] == 1)
                     {
-                        despatchedMsg += " " + btnB;
                         msg.ButtonB = true;
                     }
                     else if (message[i] == 2)
                     {
-                        despatchedMsg += " " + btnC;
                         msg.ButtonC = true;
                     }
                     else if (message[i] == 3)
                     {
-                        despatchedMsg += " " + btnD;
                         msg.ButtonD = true;
                     }
                 }
@@ -249,16 +249,16 @@ namespace ZeeClient
             }
             // Battery charge message
             else if (numberOfBytes == 5)
-                //&& (message[0] == 4 && message[1] == 161 && message[2] == 17 && message[3] == 10))
-                despatchedMsg = battery + " " + message[0].ToString() + " "
-                    + message[1].ToString() + " " + message[2].ToString() + " " + message[3].ToString() + " " + message[4].ToString();
-            // Joystic
+            {
+                string batteryStatus = message[0].ToString() + " " + message[1].ToString() + " " + message[2].ToString() + " " 
+                    + message[3].ToString() + " " + message[4].ToString();
+            }
+            // Joystick
             else if ((numberOfBytes == 6) &&
                 (message[0] == 5 && message[1] == 161 && message[2] == 8 && message[3] == 0))
             {
                 int axysX = 0;
                 int axysY = 0;
-                despatchedMsg += joystick;
 
                 if (message[4] >= 128)
                     axysX = message[4] - 255;
@@ -270,7 +270,6 @@ namespace ZeeClient
                 else
                     axysY = message[5];
 
-                despatchedMsg += "(" + axysX + ";" + axysY + ")";
                 msg.JoystickX = axysX;
                 msg.JoystickY = axysY;
             }
@@ -278,8 +277,6 @@ namespace ZeeClient
             // Send Zeemote message
             if (msg.Touched)
                 bgWorkerProcessData.ReportProgress(0, msg);
-
-            return despatchedMsg;
         }
     }
 

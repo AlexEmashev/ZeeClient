@@ -52,16 +52,12 @@ namespace ZeeClient
                     curZeemoteKeys.A = msg.ButtonA;
                     if (KeyUp != null)
                         KeyUp.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeA));
-
-                    SendNewMessage("A released");
                 }
                 else if (msg.ButtonA && !curZeemoteKeys.A)
                 {
                     curZeemoteKeys.A = msg.ButtonA;
                     if (KeyDown != null)
                         KeyDown.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeA));
-
-                    SendNewMessage("A pressed");
                 }
 
                 if (!msg.ButtonB && curZeemoteKeys.B)
@@ -69,16 +65,12 @@ namespace ZeeClient
                     curZeemoteKeys.B = msg.ButtonB;
                     if (KeyUp != null)
                         KeyUp.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeB));
-
-                    SendNewMessage("B released");
                 }
                 else if (msg.ButtonB && !curZeemoteKeys.B)
                 {
                     curZeemoteKeys.B = msg.ButtonB;
                     if (KeyDown != null)
                         KeyDown.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeB));
-
-                    SendNewMessage("B pressed");
                 }
 
                 if (!msg.ButtonC && curZeemoteKeys.C)
@@ -86,16 +78,12 @@ namespace ZeeClient
                     curZeemoteKeys.C = msg.ButtonC;
                     if (KeyUp != null)
                         KeyUp.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeC));
-
-                    SendNewMessage("C released");
                 }
                 else if (msg.ButtonC && !curZeemoteKeys.C)
                 {
                     curZeemoteKeys.C = msg.ButtonC;
                     if (KeyDown != null)
                         KeyDown.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeC));
-
-                    SendNewMessage("C pressed");
                 }
 
                 if (!msg.ButtonD && curZeemoteKeys.D)
@@ -103,16 +91,12 @@ namespace ZeeClient
                     curZeemoteKeys.D = msg.ButtonD;
                     if (KeyUp != null)
                         KeyUp.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeD));
-
-                    SendNewMessage("D released");
                 }
                 else if (msg.ButtonD && !curZeemoteKeys.D)
                 {
                     curZeemoteKeys.D = msg.ButtonD;
                     if (KeyDown != null)
                         KeyDown.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeD));
-
-                    SendNewMessage("D pressed");
                 }
             }
             else // Joystick was touched
@@ -125,16 +109,12 @@ namespace ZeeClient
                     curZeemoteKeys.JoyLeft = false;
                     if (KeyUp != null)
                         KeyUp.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeJoyLeft));
-
-                    SendNewMessage("Left released");
                 }
                 else if (direction == 1 && !curZeemoteKeys.JoyLeft)
                 {
                     curZeemoteKeys.JoyLeft = true;
                     if (KeyDown != null)
                         KeyDown.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeJoyLeft));
-
-                    SendNewMessage("Left pressed");
                 }
 
                 if (direction != 2 && curZeemoteKeys.JoyRight)
@@ -142,15 +122,12 @@ namespace ZeeClient
                     curZeemoteKeys.JoyRight = false;
                     if (KeyUp != null)
                         KeyUp.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeJoyRight));
-                    SendNewMessage("Right released");
                 }
                 else if (direction == 2 && !curZeemoteKeys.JoyRight)
                 {
                     curZeemoteKeys.JoyRight = true;
                     if (KeyDown != null)
                         KeyDown.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeJoyRight));
-
-                    SendNewMessage("Right pressed");
                 }
 
                 if (direction != 3 && curZeemoteKeys.JoyUp)
@@ -158,15 +135,12 @@ namespace ZeeClient
                     curZeemoteKeys.JoyUp = false;
                     if (KeyUp != null)
                         KeyUp.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeJoyUp));
-                    SendNewMessage("Up released");
                 }
                 else if (direction == 3 && !curZeemoteKeys.JoyUp)
                 {
                     curZeemoteKeys.JoyUp = true;
                     if (KeyDown != null)
                         KeyDown.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeJoyUp));
-
-                    SendNewMessage("Up pressed");
                 }
 
                 if (direction != 4 && curZeemoteKeys.JoyDown)
@@ -174,15 +148,12 @@ namespace ZeeClient
                     curZeemoteKeys.JoyDown = false;
                     if (KeyUp != null)
                         KeyUp.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeJoyDown));
-                    SendNewMessage("Down released");
                 }
                 else if (direction == 4 && !curZeemoteKeys.JoyDown)
                 {
                     curZeemoteKeys.JoyDown = true;
                     if (KeyDown != null)
                         KeyDown.Invoke(this, new ZeemoteKeysArgs(ZeemoteKeys.KeyCodeJoyDown));
-
-                    SendNewMessage("Down pressed");
                 }
             }
         }
@@ -235,6 +206,9 @@ namespace ZeeClient
         }
     }
 
+    /// <summary>
+    /// Class containing code of pressed key on Zeemote.
+    /// </summary>
     class ZeemoteKeysArgs : EventArgs
     {
         /// <summary>
