@@ -309,6 +309,22 @@ namespace ZeeClient
         }
 
         /// <summary>
+        /// Releases all hotkeys
+        /// <remarks>Used as safe landing while program is closing.</remarks>
+        /// </summary>
+        private void ReleaseAllKeys()
+        {
+            HotKeyUp(hkA);
+            HotKeyUp(hkB);
+            HotKeyUp(hkC);
+            HotKeyUp(hkD);
+            HotKeyUp(hkLeft);
+            HotKeyUp(hkRight);
+            HotKeyUp(hkUp);
+            HotKeyUp(hkDown);
+        }
+
+        /// <summary>
         /// Loads button settings.
         /// </summary>
         private void LoadButtonsSettings()
@@ -366,7 +382,7 @@ namespace ZeeClient
         {
             if (this.WindowState == FormWindowState.Minimized)
             {
-                this.Hide();
+                HideWindow();
             }
         }
 
@@ -403,19 +419,69 @@ namespace ZeeClient
             this.TopMost = topMost;
         }
 
+        /// <summary>
+        /// Minimizes window to tray.
+        /// </summary>
+        private void HideWindow()
+        {
+            this.WindowState = FormWindowState.Minimized;
+            this.Hide();
+        }
+
+        /// <summary>
+        /// Hanlde program exit.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FormClient_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ReleaseAllKeys();
+        }
+
         private void toolStripMenuItemClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void FormClient_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            MessageBox.Show("Form closing");
-        }
-
         private void toolStripMenuItemAbout_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog();
+        }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FormSettings().ShowDialog();
+        }
+
+        /// <summary>
+        /// Notify icon click.
+        /// Shows application window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void notifyIcon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /// <summary>
+        /// Supports click on notify icon to show or hide program window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void notifyIcon_MouseClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                if(this.WindowState == FormWindowState.Minimized)
+                {
+                    ShowWindow();
+                }
+                else
+                {
+                    HideWindow();
+                }
+            }
         }
     }
 }

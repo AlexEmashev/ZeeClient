@@ -47,6 +47,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxStatus = new System.Windows.Forms.TextBox();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(29, 23);
             this.buttonRight.TabIndex = 2;
+            this.buttonRight.TabStop = false;
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.hotKeySetup_Click);
             // 
@@ -70,6 +72,7 @@
             this.buttonDown.Name = "buttonDown";
             this.buttonDown.Size = new System.Drawing.Size(29, 23);
             this.buttonDown.TabIndex = 3;
+            this.buttonDown.TabStop = false;
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.hotKeySetup_Click);
             // 
@@ -81,6 +84,7 @@
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(31, 23);
             this.buttonUp.TabIndex = 0;
+            this.buttonUp.TabStop = false;
             this.buttonUp.UseVisualStyleBackColor = true;
             this.buttonUp.Click += new System.EventHandler(this.hotKeySetup_Click);
             // 
@@ -92,6 +96,7 @@
             this.buttonLeft.Name = "buttonLeft";
             this.buttonLeft.Size = new System.Drawing.Size(29, 23);
             this.buttonLeft.TabIndex = 1;
+            this.buttonLeft.TabStop = false;
             this.buttonLeft.UseVisualStyleBackColor = true;
             this.buttonLeft.Click += new System.EventHandler(this.hotKeySetup_Click);
             // 
@@ -102,6 +107,7 @@
             this.buttonD.Name = "buttonD";
             this.buttonD.Size = new System.Drawing.Size(73, 23);
             this.buttonD.TabIndex = 7;
+            this.buttonD.TabStop = false;
             this.buttonD.Text = "D";
             this.buttonD.UseVisualStyleBackColor = true;
             this.buttonD.Click += new System.EventHandler(this.hotKeySetup_Click);
@@ -113,6 +119,7 @@
             this.buttonC.Name = "buttonC";
             this.buttonC.Size = new System.Drawing.Size(73, 23);
             this.buttonC.TabIndex = 6;
+            this.buttonC.TabStop = false;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = true;
             this.buttonC.Click += new System.EventHandler(this.hotKeySetup_Click);
@@ -124,6 +131,7 @@
             this.buttonB.Name = "buttonB";
             this.buttonB.Size = new System.Drawing.Size(73, 23);
             this.buttonB.TabIndex = 5;
+            this.buttonB.TabStop = false;
             this.buttonB.Text = "B";
             this.buttonB.UseVisualStyleBackColor = true;
             this.buttonB.Click += new System.EventHandler(this.hotKeySetup_Click);
@@ -135,6 +143,7 @@
             this.buttonA.Name = "buttonA";
             this.buttonA.Size = new System.Drawing.Size(73, 23);
             this.buttonA.TabIndex = 4;
+            this.buttonA.TabStop = false;
             this.buttonA.Text = "A";
             this.buttonA.UseVisualStyleBackColor = true;
             this.buttonA.Click += new System.EventHandler(this.hotKeySetup_Click);
@@ -159,27 +168,29 @@
             this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "ZeeClient";
             this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
             // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemAbout,
+            this.settingsToolStripMenuItem,
             this.toolStripMenuItemClose});
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.ShowImageMargin = false;
-            this.contextMenuStrip.Size = new System.Drawing.Size(83, 48);
+            this.contextMenuStrip.Size = new System.Drawing.Size(92, 70);
             // 
             // toolStripMenuItemAbout
             // 
             this.toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
-            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(82, 22);
+            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(127, 22);
             this.toolStripMenuItemAbout.Text = "About";
             this.toolStripMenuItemAbout.Click += new System.EventHandler(this.toolStripMenuItemAbout_Click);
             // 
             // toolStripMenuItemClose
             // 
             this.toolStripMenuItemClose.Name = "toolStripMenuItemClose";
-            this.toolStripMenuItemClose.Size = new System.Drawing.Size(82, 22);
+            this.toolStripMenuItemClose.Size = new System.Drawing.Size(127, 22);
             this.toolStripMenuItemClose.Text = "Close";
             this.toolStripMenuItemClose.Click += new System.EventHandler(this.toolStripMenuItemClose_Click);
             // 
@@ -210,6 +221,13 @@
             this.textBoxStatus.ReadOnly = true;
             this.textBoxStatus.Size = new System.Drawing.Size(428, 20);
             this.textBoxStatus.TabIndex = 22;
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // FormClient
             // 
@@ -263,6 +281,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemClose;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAbout;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
     }
 }
 
