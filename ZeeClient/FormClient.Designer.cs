@@ -165,6 +165,7 @@
             // 
             // notifyIcon
             // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
             this.notifyIcon.Text = "ZeeClient";
             this.notifyIcon.Visible = true;
             // 
@@ -206,6 +207,7 @@
             this.Controls.Add(this.textBoxRawData);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "FormClient";
             this.Text = "ZeeClient";

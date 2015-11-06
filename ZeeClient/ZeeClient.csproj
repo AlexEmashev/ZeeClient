@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ZeeIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="InputSimulator">
       <HintPath>..\..\..\..\..\Distrib\[Programming]\InputSimulator.0.1.0.0-bin\InputSimulator.0.1.0.0-bin\Release\InputSimulator.dll</HintPath>
@@ -109,6 +112,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\ArrowUp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ZeeIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
