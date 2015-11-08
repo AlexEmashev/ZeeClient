@@ -2,6 +2,8 @@
 
 Unofficial Zeemote client for Windows OS.
 
+Compiled exe files can be downloaded following [this link](https://github.com/AlexEmashev/ZeeClient/releases/download/v1.0/ZeeClient.zip).
+
 ##About
 
 This small utility is designed for artists who want to draw on a Windows tablet with digitizer (such as Microsoft Surface, Asus Vivotab Note or Lenovo Thinkpad 2 etc).
