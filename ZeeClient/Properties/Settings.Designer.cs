@@ -121,7 +121,7 @@ namespace ZeeClient.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("40")]
         public int DeadZone {
             get {
                 return ((int)(this["DeadZone"]));

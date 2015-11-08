@@ -250,8 +250,17 @@ namespace ZeeClient
             // Battery charge message
             else if (numberOfBytes == 5)
             {
-                string batteryStatus = message[0].ToString() + " " + message[1].ToString() + " " + message[2].ToString() + " " 
-                    + message[3].ToString() + " " + message[4].ToString();
+                try
+                {
+                    string batteryStatus = "Voltage " + BitConverter.ToUInt16(new byte[] { message[4], message[3]}, 0).ToString();
+                    // Currently write battery status to log file, to get the info, when battery dies
+                    //SimpleLog.Write(batteryStatus, true);
+                }
+                catch (Exception exc)
+                {
+                    //SimpleLog.Write(exc.Message, false);
+                }
+
             }
             // Joystick
             else if ((numberOfBytes == 6) &&

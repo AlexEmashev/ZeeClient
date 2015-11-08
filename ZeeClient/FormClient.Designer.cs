@@ -43,11 +43,11 @@
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemClose = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxStatus = new System.Windows.Forms.TextBox();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -68,9 +68,9 @@
             // 
             this.buttonDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDown.Image = global::ZeeClient.Properties.Resources.ArrowDown;
-            this.buttonDown.Location = new System.Drawing.Point(75, 88);
+            this.buttonDown.Location = new System.Drawing.Point(77, 88);
             this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(29, 23);
+            this.buttonDown.Size = new System.Drawing.Size(28, 23);
             this.buttonDown.TabIndex = 3;
             this.buttonDown.TabStop = false;
             this.buttonDown.UseVisualStyleBackColor = true;
@@ -80,7 +80,7 @@
             // 
             this.buttonUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonUp.Image = ((System.Drawing.Image)(resources.GetObject("buttonUp.Image")));
-            this.buttonUp.Location = new System.Drawing.Point(72, 17);
+            this.buttonUp.Location = new System.Drawing.Point(75, 17);
             this.buttonUp.Name = "buttonUp";
             this.buttonUp.Size = new System.Drawing.Size(31, 23);
             this.buttonUp.TabIndex = 0;
@@ -127,7 +127,7 @@
             // buttonB
             // 
             this.buttonB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonB.Location = new System.Drawing.Point(382, 79);
+            this.buttonB.Location = new System.Drawing.Point(383, 33);
             this.buttonB.Name = "buttonB";
             this.buttonB.Size = new System.Drawing.Size(73, 23);
             this.buttonB.TabIndex = 5;
@@ -139,7 +139,7 @@
             // buttonA
             // 
             this.buttonA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonA.Location = new System.Drawing.Point(382, 33);
+            this.buttonA.Location = new System.Drawing.Point(382, 82);
             this.buttonA.Name = "buttonA";
             this.buttonA.Size = new System.Drawing.Size(73, 23);
             this.buttonA.TabIndex = 4;
@@ -183,14 +183,21 @@
             // toolStripMenuItemAbout
             // 
             this.toolStripMenuItemAbout.Name = "toolStripMenuItemAbout";
-            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(127, 22);
+            this.toolStripMenuItemAbout.Size = new System.Drawing.Size(91, 22);
             this.toolStripMenuItemAbout.Text = "About";
             this.toolStripMenuItemAbout.Click += new System.EventHandler(this.toolStripMenuItemAbout_Click);
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(91, 22);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // toolStripMenuItemClose
             // 
             this.toolStripMenuItemClose.Name = "toolStripMenuItemClose";
-            this.toolStripMenuItemClose.Size = new System.Drawing.Size(127, 22);
+            this.toolStripMenuItemClose.Size = new System.Drawing.Size(91, 22);
             this.toolStripMenuItemClose.Text = "Close";
             this.toolStripMenuItemClose.Click += new System.EventHandler(this.toolStripMenuItemClose_Click);
             // 
@@ -221,13 +228,6 @@
             this.textBoxStatus.ReadOnly = true;
             this.textBoxStatus.Size = new System.Drawing.Size(428, 20);
             this.textBoxStatus.TabIndex = 22;
-            // 
-            // settingsToolStripMenuItem
-            // 
-            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.settingsToolStripMenuItem.Text = "Settings";
-            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // FormClient
             // 
