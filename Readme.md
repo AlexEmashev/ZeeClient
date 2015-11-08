@@ -33,6 +33,13 @@ It allows to map Zeemote buttons to perform various shortcuts.
 - 32feet.NET - Personal Area Networking for .NET http://32feet.codeplex.com/
 - Windows Input Simulator https://inputsimulator.codeplex.com/
 
+##ToDo
+
+Some things to improve:
+
+- [ ] Replace Input Simulator with custom class, that has adequate key names
+- [ ] Add battery status (recalculate battery voltage to percent)
+
 ##License
 
 The MIT License
