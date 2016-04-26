@@ -12,6 +12,7 @@ using InTheHand.Net.Sockets;
 using System.IO;
 using WindowsInput;
 using System.Runtime.InteropServices;
+using System.Threading;
 
 namespace ZeeClient
 {
@@ -80,6 +81,7 @@ namespace ZeeClient
             //zeemoteListener.ErrorOccured += new ZeemoteListener.ErrorOccuredEventHandler(zeemoteListener_ErrorOccured);
             zeemoteListener.NewMessage += new ZeemoteListener.MessageEventHandler(zeemoteListener_NewMessage);
             zeemoteListener.Connect();
+            Thread.CurrentThread.Priority = ThreadPriority.AboveNormal;
         }
 
         /// <summary>

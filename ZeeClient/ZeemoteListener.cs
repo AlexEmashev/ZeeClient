@@ -138,8 +138,8 @@ namespace ZeeClient
             }
             finally
             {
-                // Can't remember wat was it for
-                bgWorkerProcessData.ReportProgress(100, "This should be the end");
+                // Can't remember what was it for
+                bgWorkerProcessData.ReportProgress(100, "It seems there is no Bluetooth on this device.");
             }
         }
 
