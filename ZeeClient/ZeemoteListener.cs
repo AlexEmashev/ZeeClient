@@ -67,6 +67,7 @@ namespace ZeeClient
         void bgWorkerProcessData_DoWork(object sender, DoWorkEventArgs e)
         {
             EstablishConnection();
+            Thread.CurrentThread.Priority = ThreadPriority.AboveNormal;
         }
 
         /// <summary>
