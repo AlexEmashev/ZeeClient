@@ -1,10 +1,10 @@
-#ZeeClient
+# ZeeClient
 
 Unofficial Zeemote client for Windows OS.
 
 Compiled exe files can be downloaded following [this link](https://github.com/AlexEmashev/ZeeClient/releases/download/v1.0/ZeeClient.zip).
 
-##About
+## About
 
 This small utility is designed for artists who want to draw on a Windows tablet with digitizer (such as Microsoft Surface, Asus Vivotab Note or Lenovo Thinkpad 2 etc).
 
@@ -18,7 +18,7 @@ It allows to map Zeemote buttons to perform various shortcuts.
 
 ![Screenshot](ZeeClient/Images/Demonstration.jpg)
 
-##Features
+## Features
 
 - Map Zeemote buttons to shortcuts with Ctrl, Alt and Shift
 - Mouse wheel support
@@ -26,22 +26,22 @@ It allows to map Zeemote buttons to perform various shortcuts.
 
 ![Screenshot](ZeeClient/Images/Screenshot.PNG)
 
-##Requirements
+## Requirements
 
 - Windows XP or higher;
 - .Net Framework 3.5 (usually pre-installed in OS);
 
-##Libraries used
+## Libraries used
 - 32feet.NET - Personal Area Networking for .NET http://32feet.codeplex.com/
 - Windows Input Simulator https://inputsimulator.codeplex.com/
 
-##ToDo
+## ToDo
 
 Some things to improve:
 
 - [ ] Replace Input Simulator with custom class, that has adequate key names
 - [ ] Add battery status (recalculate battery voltage to percent)
 
-##License
+## License
 
 The MIT License

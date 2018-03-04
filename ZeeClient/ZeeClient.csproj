@@ -25,7 +25,7 @@
     <SupportUrl>https://github.com/AlexEmashev/ZeeClient</SupportUrl>
     <ProductName>ZeeClient</ProductName>
     <PublisherName>Alexander Emashev</PublisherName>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
